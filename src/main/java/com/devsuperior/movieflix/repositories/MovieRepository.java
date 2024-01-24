@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query("SELECT obj FROM Movie obj INNER JOIN obj.genre genre WHERE "
-            + "(:genre IS NULL OR genre = :genre) ")
+            + "(:genre IS NULL OR genre = :genre) "
+            + "ORDER BY obj.title ASC")
     Page<Movie> findMoviesByGenre(Genre genre, Pageable pageable);
 }
