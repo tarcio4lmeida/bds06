@@ -39,9 +39,4 @@ public class MovieResource {
         MovieDTO MovieDTO = service.findMovieReviews(id);
         return ResponseEntity.ok(MovieDTO);
     }
-
-
-
-
-
 }
