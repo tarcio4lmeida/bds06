@@ -45,7 +45,8 @@ public class ReviewService {
         Review entity = new Review();
 
         User user = this.authenticated();
-        Movie movie = movieRepository.findById(dto.getMovieId()).orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+        Movie movie = movieRepository.findById(dto.getMovieId())
+                .orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 
         entity.setUser(user);
         entity.setMovie(movie);
